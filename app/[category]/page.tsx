@@ -1,10 +1,8 @@
 import React from 'react'
 import { client } from '@/app/lib/sanity'
 import { simplifiedProduct } from '../utils/interfaces/interface'
-import Navbar from '../components/Navbar'
-import Image from 'next/image'
-import Link from 'next/link'
 import ProductCard from '../components/ProductCard'
+
 async function getData(category: string){
     const query = `*[_type == "product" && category->name == "${category}"] {
         name,

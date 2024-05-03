@@ -21,7 +21,9 @@ const CategoriesBar = async () => {
       <p className="border-r pr-3 border-indigo-600 mr-4 flex items-center gap-2 cursor-pointer">All Categories <MdKeyboardArrowDown className='text-lg'/></p>
       <ul className="flex gap-5 overflow-x-auto scroll-smooth no-scrollbar">
           {data.map((route : any, index : any) => (
-            <CategoryLink route={route} index={index}/>
+            <div key={index}>
+              <CategoryLink route={route} index={index}/>
+            </div>
           ))}
       </ul>
       </div>
