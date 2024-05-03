@@ -45,13 +45,13 @@ const Homepage = async () => {
             <section className="md:max-w-screen-2xl mx-auto">
               <h1 className="font-bold my-4">All Products : </h1>
               <div className=" grid grid-cols-2 md:grid-cols-3 px-4 lg:p-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-8 gap-y-4 ">
-                {
-                  data.map((product, index) => (
-                    <ProductCard product={product} index={index} isOnSale={product.isOnSale}/>
-                  ))
-                }
-                
-                
+                  {
+                    data.map((product, index) => (
+                      <div key={index}>
+                        <ProductCard product={product}isOnSale={product.isOnSale}/>
+                      </div>
+                    ))
+                  }
               </div>
             </section>
           </div>
