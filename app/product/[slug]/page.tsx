@@ -3,7 +3,8 @@ import { client, urlFor } from "@/app/lib/sanity";
 import ImageGallery from "@/app/components/ImageGallery";
 import { Crown, Truck } from "lucide-react";
 import { BsCash } from "react-icons/bs";
-import { Button } from "@/components/ui/button";
+import useCart from "@/app/store/useCart";
+import AddProductBtns from "@/app/components/AddProductBtns";
 async function getData(slug: string){
     const query = `*[_type == 'product' && slug.current == "${slug}"][0]{
         images,
@@ -58,10 +59,7 @@ export default async function ProductPage({params} : {params: {slug : string}}) 
                         <div>
                             {data.description}
                         </div>
-                        <div className="flex gap-5">
-                            <Button>Add To Cart</Button>
-                            <Button>Checkout</Button>
-                        </div>
+                        <AddProductBtns product={data}/>
                     </div>
                 </div>
 

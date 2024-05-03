@@ -1,10 +1,8 @@
 import Navbar from "@/app/components/Navbar";
 import Image from "next/image";
 import heroImg from '@/public/hero.png'
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Hero from "@/app/components/Hero";
 import Footer from "@/app/components/Footer";
-import Link from "next/link";
 import CategoriesBar from "../components/CategoriesBar";
 import { client, urlFor } from "../lib/sanity";
 import { simplifiedProduct } from "../utils/interfaces/interface";

@@ -18,7 +18,7 @@ async function getData(category: string){
     return data;
   }
   export default async function CategoryPage ({params} : {params : {category: string}}) {
-    const data: simplifiedProduct[] = await getData(params.category);
+  const data: simplifiedProduct[] = await getData(params.category);
 
   if(data.length < 1) return(<div className='font-bold text-2xl text-center'>Opps... Seems like all the products in this category are out of stock</div>)
   return (
@@ -29,9 +29,7 @@ async function getData(category: string){
           <li key={index}>
             <ProductCard product={product}  isOnSale={product.isOnSale}/>
           </li>
-        ))}
-        
-        
+        ))}        
       </ul>
     </div>
   )

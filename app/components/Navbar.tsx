@@ -1,15 +1,15 @@
+"use client"
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
 import { FaHeart } from "react-icons/fa";
 import { LuCrown } from "react-icons/lu";
-import Logo from '@/public/logo.png'
-import Image from "next/image";
 import { IoCart } from "react-icons/io5";
 import Link from "next/link";
-
+import useCart from "../store/useCart";
 const Navbar = () => {
+  const {cart} = useCart();
   return (
-    <nav className=" px-4 py-3  backdrop-blur-lg bg-transparent w-full">
+    <nav className=" px-4 py-3  bg-white bg-transparent w-full">
         <div className="max-w-screen-2xl mx-auto flex justify-between items-center">
           <Link href="/">
           <h1 className="text-xl font-bold hover:text-indigo-600 duration-300 flex items-center gap-2 w-15 h-15">
@@ -25,7 +25,12 @@ const Navbar = () => {
             <Button>Sign Up</Button>
 
             <button className="text-xl text-gray-500 bg-gray-100 p-2 rounded-lg hover:text-indigo-600"><FaHeart /></button>
-            <button className="text-2xl text-gray-500 bg-gray-100 p-2 rounded-lg hover:text-indigo-600"><IoCart /></button>
+            <Link href={"/cart"}><button className="relative text-2xl text-gray-500 bg-gray-100 p-2 rounded-lg hover:text-indigo-600"><IoCart /> 
+              <div className="absolute top-1 right-1 text-sm text-indigo-600 font-bold ">
+                {cart.length}
+                </div>
+              </button>
+            </Link>
           </div>
         </div>
       </nav>
