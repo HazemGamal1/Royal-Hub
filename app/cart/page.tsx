@@ -1,5 +1,4 @@
 "use client"
-import product from "@/sanity/schemaTypes/product"
 import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
 import useCart from "../store/useCart"
@@ -15,9 +14,10 @@ import {
   } from "@/components/ui/table"
 import Image from "next/image"
 import { urlFor } from "../lib/sanity"
+import { Button } from "@/components/ui/button"
 
-const page = () => {
-    const {cart} = useCart();
+const Cart = () => {
+    const {cart, removeFromCart} = useCart();
     let total : number = cart.reduce((acc, curr) => acc + curr.price, 0);
     console.log(total);
   return (
@@ -33,6 +33,7 @@ const page = () => {
                     <TableHead>Category</TableHead>
                     <TableHead className="w-[100px]">Quantity</TableHead>
                     <TableHead className="text-right">Price</TableHead>
+                    <TableHead className="w-[100px]">Remove From Cart</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -42,6 +43,7 @@ const page = () => {
                         <TableCell>{product.categoryName}</TableCell>
                         <TableCell>1</TableCell>
                         <TableCell className="text-right">{product.price}</TableCell>
+                        <TableCell><Button onClick={() => removeFromCart(product.name)} variant={"destructive"}>Remove</Button></TableCell>
                     </TableRow>
                     ))}
                 </TableBody>
@@ -59,4 +61,4 @@ const page = () => {
   )
 }
 
-export default page;
+export default Cart;
