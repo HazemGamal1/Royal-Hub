@@ -11,14 +11,15 @@ export default function ImageGallery({images, isOnSale} : iAppProps){
     const [bigImage, setBigImage] = useState(images[0])
 
     const handleSmallImageclick = (image: any) => {
+        
         setBigImage(image);
     }
     return(
-        <div className="grid gap-4 lg:grid-cols-5 h-[30rem] w-80 lg:h-full lg:w-full mx-auto lg:mx-0">
+        <div className="grid gap-1 lg:grid-cols-5 h-[30rem] w-80 lg:h-full lg:w-full mx-auto lg:mx-0">
             <div className="order-last flex gap-4 lg:order-none lg:flex-col max-h-full w-full">
                 {
                     images.map((image : any, index : any) => (
-                        <div key={index} className="overflow-hidden rounded-lg w-full border py-2 px-3 hover:border-indigo-600 ">
+                        <div key={index} className="overflow-hidden rounded-lg lg:w-[5rem] border p-1 hover:border-indigo-600 lg: h-[5rem] mx-auto">
                             <Image src={urlFor(image).url()} alt="Product Image" width={200} height={200} className={`h-full w-full object-contain object-center cursor-pointer ${image !== bigImage ? "opacity-75" : "opacity-100"}`} onClick={() => handleSmallImageclick(image)}/>
                         </div>
                     ))

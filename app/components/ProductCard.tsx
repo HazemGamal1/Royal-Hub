@@ -16,7 +16,7 @@ const ProductCard = ({ product, isOnSale} : PropTypes) => {
             <Heart className='opacity-0 group-hover:opacity-100 duration-300'/>
         </div>
         <Link href={`/product/${product.slug}`}>
-            <div className="aspect-square w-full  overflow-hidden rounded-md  group-hover:opacity-75 lg:h-80 cursor-pointer">
+            <div className="aspect-square w-full  overflow-hidden rounded-md  group-hover:opacity-75 lg:h-80 cursor-pointer ">
                 <Image src={product.imageUrl} alt="product photo" className="w-full h-full object-contain object-center lg:h-full lg:w-full group-hover:scale-105 duration-300" width={300} height={300}/>
                 
             </div>

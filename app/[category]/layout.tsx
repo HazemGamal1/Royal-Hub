@@ -8,11 +8,9 @@ import { Toaster } from "sonner"
 const layout = ({children} : {children: React.ReactNode}) => {
   return (
     <div className="flex flex-col justify-between min-h-screen">
-        <div className=" backdrop-blur-lg bg-transparent sticky top-0 w-full z-10">
-            <Navbar />
-            <CategoriesBar />
-            {children}
-        </div>
+        <Navbar />
+        <CategoriesBar />
+        {children}
         <Footer />
     </div>
   )
