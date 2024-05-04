@@ -5,12 +5,12 @@ import heroImg from '@/public/hero.png'
 import Hero from "@/app/components/Hero";
 import Footer from "@/app/components/Footer";
 import CategoriesBar from "../components/CategoriesBar";
-import { client, urlFor } from "../lib/sanity";
+import { client } from "../lib/sanity";
 import { simplifiedProduct } from "../utils/interfaces/interface";
 import ProductCard from "../components/ProductCard";
 import { groq } from "next-sanity";
 import { useEffect, useState } from "react";
-import { Grid } from 'react-loader-spinner'
+import { Circles, Grid } from 'react-loader-spinner'
 
 export default function Homepage() {
   const [products, setProducts] = useState<simplifiedProduct[]>([]);
@@ -38,6 +38,21 @@ export default function Homepage() {
     <>
     
         <main  className="flex flex-col justify-between min-h-screen ">
+          {
+            isLoading &&
+            <div className="fixed top-0 w-full h-full bg-gray-300/45 bg z-[1000] grid place-content-center">
+                <Circles
+                  visible={true}
+                  height="80"
+                  width="80"
+                  color="#000"
+                  ariaLabel="grid-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="grid-wrapper"
+                />
+                ....
+            </div>  
+          }
           <div >
             <div className="relative">
               <Image src={heroImg} priority alt="hero image" className="absolute animate-pulse -z-10 object-contain object-top top-10 lg:top-10 w-full h-full"/>
