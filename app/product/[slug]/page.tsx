@@ -23,9 +23,11 @@ export default async function ProductPage({params} : {params: {slug : string}}) 
     const data: fullProduct = await getData(params.slug);
     return(
         <div className="relative">
+            {
+                data ?
             <div className="mx-auto max-w-screen-xl px-4 md:px-8 sticky ">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <ImageGallery images={data.images} isOnSale={data.isOnSale}/>
+                        <ImageGallery images={data.images} isOnSale={data.isOnSale}/>
                     <div className="flex flex-col gap-8">
                         <div>
                             <h1 className="font-semibold text-2xl md:text-4xl">{data.name}</h1>
@@ -64,6 +66,11 @@ export default async function ProductPage({params} : {params: {slug : string}}) 
                 </div>
 
             </div>
+            :
+            <div>
+                <p>this product was removed</p>
+            </div>
+            }
         </div>
     )
 }
