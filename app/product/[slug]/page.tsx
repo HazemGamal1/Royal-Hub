@@ -26,7 +26,7 @@ export default async function ProductPage({params} : {params: {slug : string}}) 
             {
                 data ?
             <div className="mx-auto max-w-screen-xl px-4 md:px-8 sticky ">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <ImageGallery images={data.images} isOnSale={data.isOnSale}/>
                     <div className="flex flex-col gap-8">
                         <div>

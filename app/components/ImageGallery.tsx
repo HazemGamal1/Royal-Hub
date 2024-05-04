@@ -18,7 +18,7 @@ export default function ImageGallery({images, isOnSale} : iAppProps){
             <div className="order-last flex gap-4 lg:order-none lg:flex-col max-h-full w-full">
                 {
                     images.map((image : any, index : any) => (
-                        <div key={index} className="overflow-hidden rounded-lg w-full border py-2 px-3 hover:border-indigo-600 h-32">
+                        <div key={index} className="overflow-hidden rounded-lg w-full border py-2 px-3 hover:border-indigo-600 ">
                             <Image src={urlFor(image).url()} alt="Product Image" width={200} height={200} className={`h-full w-full object-contain object-center cursor-pointer ${image !== bigImage ? "opacity-75" : "opacity-100"}`} onClick={() => handleSmallImageclick(image)}/>
                         </div>
                     ))
