@@ -24,7 +24,7 @@ const Cart = () => {
     <div className="flex flex-col justify-between min-h-screen">
         <div>
             <Navbar />
-            <div className="max-w-screen-2xl mx-auto px-4">
+            <div className="w-full lg:max-w-screen-2xl mx-auto px-4 my-32">
                 <Table>
                 <TableCaption>A list of your cart items</TableCaption>
                 <TableHeader>
@@ -49,7 +49,7 @@ const Cart = () => {
                 </TableBody>
                 <TableFooter>
                     <TableRow>
-                    <TableCell colSpan={3}>Total</TableCell>
+                    <TableCell colSpan={4}>Total</TableCell>
                     <TableCell className="text-right">EGP {total}</TableCell>
                     </TableRow>
                 </TableFooter>

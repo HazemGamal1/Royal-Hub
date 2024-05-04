@@ -16,7 +16,7 @@ async function getData(){
 const CategoriesBar = async () => {
   const data : category[] = await getData();
   return (
-    <div className=" bg-gray-100 text-xs lg:text-sm text-nowrap">
+    <div className=" bg-gray-100 text-xs lg:text-sm text-nowrap fixed top-16 w-full">
       <div className="max-w-screen-2xl mx-auto flex py-3 font-bold px-4 lg:px-0">
       <p className="border-r pr-3 border-indigo-600 mr-4 flex items-center gap-2 cursor-pointer">All Categories <MdKeyboardArrowDown className='text-lg'/></p>
       <ul className="flex gap-5 overflow-x-auto scroll-smooth no-scrollbar">

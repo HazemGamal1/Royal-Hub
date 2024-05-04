@@ -29,18 +29,18 @@ const Homepage = async () => {
         <main  className="flex flex-col justify-between min-h-screen ">
           <div >
             <div className="relative">
-              <Image src={heroImg} priority alt="hero image" className="absolute animate-pulse -z-10 object-contain object-top top-10 lg:top-10 w-full h-full"/>
+              {/* <Image src={heroImg} priority alt="hero image" className="absolute animate-pulse -z-10 object-contain object-top top-10 lg:top-10 w-full h-full"/> */}
 
               <div className=" backdrop-blur-lg bg-transparent fixed top-0 w-full z-[100]">
                 <Navbar />
                 <CategoriesBar />
               </div>
-              <div className="mb-8 mt-20">
+              {/* <div className="mb-8 mt-20">
               <Hero />
-              </div>
+              </div> */}
 
             </div>
-            <section className="md:max-w-screen-2xl mx-auto">
+            <section className="md:max-w-screen-2xl mx-auto my-32">
               <h1 className="font-bold my-4">All Products : </h1>
               <div className=" grid grid-cols-2 md:grid-cols-3 px-4 lg:p-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-8 gap-y-4 ">
                   {

@@ -9,7 +9,7 @@ import useCart from "../store/useCart";
 const Navbar = () => {
   const {cart} = useCart();
   return (
-    <nav className=" px-4 py-3  bg-white bg-transparent w-full">
+    <nav className=" px-4 py-3 fixed top-0 z-10 bg-white bg-transparent w-full">
         <div className="max-w-screen-2xl mx-auto flex justify-between items-center">
           <Link href="/">
           <h1 className="text-xl font-bold hover:text-indigo-600 duration-300 flex items-center gap-2 w-15 h-15">
