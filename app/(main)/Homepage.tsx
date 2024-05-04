@@ -11,6 +11,7 @@ import ProductCard from "../components/ProductCard";
 import { groq } from "next-sanity";
 import { useEffect, useState } from "react";
 import { Circles, Grid } from 'react-loader-spinner'
+import FullPageLoader from "../components/FullPageLoader";
 
 export default function Homepage() {
   const [products, setProducts] = useState<simplifiedProduct[]>([]);
@@ -40,18 +41,7 @@ export default function Homepage() {
         <main  className="flex flex-col justify-between min-h-screen ">
           {
             isLoading &&
-            <div className="fixed top-0 w-full h-full bg-gray-300/45 bg z-[1000] grid place-content-center">
-                <Circles
-                  visible={true}
-                  height="80"
-                  width="80"
-                  color="#000"
-                  ariaLabel="grid-loading"
-                  wrapperStyle={{}}
-                  wrapperClass="grid-wrapper"
-                />
-                ....
-            </div>  
+            <FullPageLoader /> 
           }
           <div >
             <div className="relative">
