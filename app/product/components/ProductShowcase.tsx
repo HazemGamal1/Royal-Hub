@@ -5,6 +5,7 @@ import { Crown, Truck } from "lucide-react";
 import { BsCash } from "react-icons/bs";
 import useCart from "@/app/store/useCart";
 import AddProductBtns from "@/app/components/AddProductBtns";
+import { ToastContainer } from "react-toastify";
 const ProductShowcase = ({data} : {data : fullProduct}) => {
   return (
     <div className="mx-auto max-w-screen-xl px-4 md:px-8 sticky ">
