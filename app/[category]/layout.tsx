@@ -4,7 +4,7 @@ import Footer from "../components/Footer"
 import FullPageLoader from "../components/FullPageLoader"
 import Navbar from "../components/Navbar"
 import useLoading from "../store/useLoading"
-const layout = ({children} : {children: React.ReactNode}) => {
+const Layout = ({children} : {children: React.ReactNode}) => {
   const { isLoading} = useLoading();
   return (
     <div className="flex flex-col justify-between min-h-screen">
@@ -30,4 +30,4 @@ const layout = ({children} : {children: React.ReactNode}) => {
   )
 }
 
-export default layout
+export default Layout
