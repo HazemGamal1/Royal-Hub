@@ -9,7 +9,7 @@ import useCart from "../store/useCart";
 const Navbar = () => {
   const {cart} = useCart();
   return (
-    <nav className=" px-4 py-3 fixed top-0 z-10 bg-white bg-transparent w-full">
+    <nav className=" px-4 py-3 fixed top-0 z-[100] bg-white bg-transparent w-full">
         <div className="max-w-screen-2xl mx-auto flex justify-between items-center">
           <Link href="/">
           <h1 className="text-xl font-bold hover:text-indigo-600 duration-300 flex items-center gap-2 w-15 h-15">
@@ -22,14 +22,12 @@ const Navbar = () => {
                 <input type="text"  name="" id="search" className="w-full p-1 bg-transparent  border-transparent rounded-md focus:outline-none"/>
             </div>
           <div className="flex gap-4">
-            <Button>Sign Up</Button>
+            {/* <Button>Sign Up</Button> */}
 
             <button className="text-xl text-gray-500 bg-gray-100 p-2 rounded-lg hover:text-indigo-600"><FaHeart /></button>
-            <Link href={"/cart"}><button className="relative text-2xl text-gray-500 bg-gray-100 p-2 rounded-lg hover:text-indigo-600"><IoCart /> 
-              <div className="absolute top-1 right-1 text-sm text-indigo-600 font-bold ">
-                {cart.length}
-                </div>
-              </button>
+              <Link href={"/cart"}><button className="relative text-2xl text-gray-500 bg-gray-100 p-2 rounded-lg hover:text-indigo-600"><IoCart /> 
+              
+            </button>
             </Link>
           </div>
         </div>

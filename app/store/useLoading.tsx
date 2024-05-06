@@ -10,3 +10,5 @@ const useLoading = create<useLoadingTypes>((set) => ({
     setIsLoading: (value : boolean) => set({isLoading : value})
     })
 )
+
+export default useLoading;

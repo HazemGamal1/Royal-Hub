@@ -1,12 +1,20 @@
-
+"use client"
 import ImageGallery from "@/app/components/ImageGallery"
 import { fullProduct } from "@/app/utils/interfaces/interface"
 import { Crown, Truck } from "lucide-react";
 import { BsCash } from "react-icons/bs";
-import useCart from "@/app/store/useCart";
 import AddProductBtns from "@/app/components/AddProductBtns";
-import { ToastContainer } from "react-toastify";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
 const ProductShowcase = ({data} : {data : fullProduct}) => {
+    const [quantity, setQuantity]= useState(1);
+    const handleDecrement = () => {
+        if(quantity > 1){
+            setQuantity(quantity => quantity - 1);
+        }else{
+            return;
+        }
+    }
   return (
     <div className="mx-auto max-w-screen-xl px-4 md:px-8 sticky ">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -44,7 +52,15 @@ const ProductShowcase = ({data} : {data : fullProduct}) => {
                             <div>
                                 {data.description}
                             </div>
-                            <AddProductBtns product={data}/>
+                            <div className="flex items-center gap-1">
+                                <p className="mr-2">Quanity : </p>
+                                <Button onClick={handleDecrement}>-</Button>
+                                <div className="px-4 py-2 border rounded-lg">
+                                    {quantity}
+                                </div>
+                                <Button onClick={() => setQuantity(quantity => quantity + 1)}>+</Button>
+                            </div>
+                            <AddProductBtns product={{ images: data.images, _id: data._id, name: data.name , price: data.price, quantity: quantity}}/>
                         </div>
                     </div>
 

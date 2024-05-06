@@ -16,9 +16,17 @@ export interface fullProduct {
     categoryName: string;
     name: string;
     description: string;
+
     isOnSale: boolean
 }
+export interface cartItem {
+    _id: string,
+    images: any;
+    price: number;
+    name: string;
+    quantity: number;
 
+}
 export interface category {
     name: string,
     description: string
