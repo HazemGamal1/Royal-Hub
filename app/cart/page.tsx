@@ -72,8 +72,8 @@ const Cart = () => {
                     <div className="flex-1 bg-gray-100 rounded-lg p-2">
                         <ul className="flex flex-col gap-8">
                             {
-                                cart.map((product) => (
-                                    <li className="flex justify-between gap-5 items-center ">
+                                cart.map((product, index) => (
+                                    <li className="flex justify-between gap-5 items-center " key={index}>
                                         <div className="flex gap-5 items-center">
                                             <div className="w-[5rem] h-[5rem]">
                                                 <Image src={urlFor(product.images[0]).url()} alt="product image" width={100} height={100} className="object-scale-down object-center w-full h-full"/>
