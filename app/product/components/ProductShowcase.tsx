@@ -45,7 +45,7 @@ const ProductShowcase = ({data} : {data : fullProduct}) => {
                                 
                             </div>
                             <div className="flex gap-3">
-                                <p className="font-bold text-orange-400 text-xl">EGP</p>
+                                <p className="font-bold text-main text-xl">EGP</p>
                                 <p className="text-4xl font-bold">
                                     {data.price}
                                 </p>
@@ -56,13 +56,11 @@ const ProductShowcase = ({data} : {data : fullProduct}) => {
                             {
                                 data.stock > 0 &&
                                 <>
-                                    <div className="flex items-center gap-1">
+                                    <div className="flex items-center">
                                         <p className="mr-2">Quanity : </p>
-                                        <Button onClick={handleDecrement}>-</Button>
-                                        <div className="px-4 py-2 border rounded-lg">
-                                            {quantity}
-                                        </div>
-                                        <Button onClick={() => setQuantity(quantity => quantity + 1)}>+</Button>
+                                        <Button onClick={handleDecrement} className="rounded-none">-</Button>
+                                        <input type="text" className="px-4 py-2 border  w-[5rem] text-center" value={quantity} onChange={(e : any) => setQuantity(e.target.value)}/>
+                                        <Button onClick={() => setQuantity(quantity => quantity + 1)} className="rounded-none">+</Button>
                                     </div>
                                     <AddProductBtns product={{ images: data.images, _id: data._id, name: data.name , price: data.price, quantity: quantity}}/>
                                 </>

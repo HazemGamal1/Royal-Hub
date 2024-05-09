@@ -7,8 +7,8 @@ const FullPageLoader = () => {
           visible={true}
           height="80"
           width="80"
-          color="#F97316"
-          secondaryColor='#F97316'
+          color="#4F46E5"
+          secondaryColor='#4F46E5'
           ariaLabel="oval-loading"
           wrapperStyle={{}}
           wrapperClass=""

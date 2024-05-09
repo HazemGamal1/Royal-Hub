@@ -11,18 +11,21 @@ import { client } from "../../lib/sanity"
 import { IoCart } from "react-icons/io5";
 import { toast } from "react-toastify";
 import { FaCheck } from "react-icons/fa";
+import FullPageLoader from "@/app/components/FullPageLoader";
 // import product from "@/sanity/schemaTypes/product"
 const Cart = () => {
     const [customer, setCustomer] = useState<string>();
     const [customerAddress, setCustomerAddress] = useState<string>();
     const [customerNumber, setCustomerNumber] = useState<string>();
     const [confirmed, setConfirmed] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
     const {cart} = useCart();
     const now = new Date();
     const formattedDate = now.toISOString();
     const total = cart.reduce((acc, product) => acc +  (product.price  * product.quantity) , 0)
 
     const handlePlaceOrder = async () => {
+        setLoading(true);
         const orderDoc = {
             _type: 'order',
             customer: customer,
@@ -47,12 +50,18 @@ const Cart = () => {
             console.log("Error placing order", error);
             toast.success("Problem placting order");
         }
+        setLoading(false);
         setConfirmed(true);
+        
     }
 
     console.log(customer);
   return (
     <div className="flex flex-col justify-between min-h-screen">
+        {
+            loading &&
+            <FullPageLoader />
+        }
         <div>
             {
                 cart.length > 0 ?
@@ -74,7 +83,7 @@ const Cart = () => {
                                                 <p className="font-bold">{product.name}</p>
                                                 {product.quantity}
                                             </div>
-                                            <p><span className="text-orange-300 font-bold">EGP</span> {product.price}</p>
+                                            <p><span className="text-main font-bold">EGP</span> {product.price}</p>
                                         </li>
                                     ))
                                 }
@@ -103,7 +112,7 @@ const Cart = () => {
                                     <div className="text-center">
                                         <div className="flex items-center justify-center gap-2 w-full font-bold">
                                             <div>
-                                                <FaCheck className="text-orange-400"/> 
+                                                <FaCheck className="text-main"/> 
                                             </div>
                                             <p>Order Confirmed</p>
                                         </div> 

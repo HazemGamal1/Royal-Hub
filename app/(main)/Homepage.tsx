@@ -48,19 +48,19 @@ export default function Homepage() {
             
             <div className="relative">
               {/* <Image src={heroImg} priority alt="hero image" className="absolute animate-pulse -z-10 object-contain object-top top-10 lg:top-10 w-full h-full"/> */}
-              <div className="w-full z-[100]">
+              <div className="w-full z-[100] ">
                 <Navbar />
-                <CategoriesBar />
+                {/* <CategoriesBar /> */}
               </div>
-              <div className="mb-8 mt-20  lg:max-w-screen-xl lg:mx-auto">
-                <Hero />
+              <div className="mb-8 mt-32  lg:max-w-screen-xl lg:mx-auto">
+                {/* <Hero /> */}
               </div>
             </div>
-            <div className="max-w-screen-xl mx-auto">
+            <div className="max-w-screen-2xl mx-auto">
               <div className="w-[75%] mx-auto my-8 lg:w-full">
                 <Slider />
               </div>
-              <div className="w-full mt-12">
+              <div className="w-full max-w-screen-xl mx-auto mt-12">
                 <Image src={DesktopPic} alt="pic" className="lg:w-[90%] mx-auto hidden lg:block"/>
                 <Image src={AppPic} alt="pic" className="lg:w-[80%] object-contain object-center mx-auto  lg:hidden"/>
               </div>

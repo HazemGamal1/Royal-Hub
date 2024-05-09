@@ -19,6 +19,7 @@ const config = {
     },
     extend: {
       colors: {
+        main: '#7C3AED',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -72,6 +73,9 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      textColor: {
+        main: '#7C3AED'
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
