@@ -29,9 +29,9 @@ const ProductCard = ({ product, isOnSale} : PropTypes) => {
                     <p className="text-sm text-gray-900 flex gap-2 font-bold"><span className='text-main'>EGP</span> {product.price}</p>
                     <p className="mt-1 text-sm text-gray-500">{product.categoryName}</p>
                     {
-                        (product.stock < 10 && product.stock > 0) && <p className='text-[8px] lg:text-sm text-main max-w-max bg-[#fce9fe9d] p-1 rounded-md'>Only {product.stock} units available</p>
+                        (product.stock < 10 && product.stock > 0) && <p className='text-[10px] lg:text-sm text-main max-w-max bg-[#fce9fe9d] p-1 rounded-md'>Only {product.stock} units available</p>
                     }
-                    {product.stock === 0  && <p className='text-[8px] lg:text-sm text-red-500 bg-[#feece99e] max-w-max rounded-md p-1'>Out of stock</p>}
+                    {product.stock === 0  && <p className='text-[10px] lg:text-sm text-red-500 bg-[#feece99e] max-w-max rounded-md p-1'>Out of stock</p>}
                 </div>
             </div>
         </Link>
