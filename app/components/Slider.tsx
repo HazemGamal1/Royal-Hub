@@ -27,8 +27,8 @@ const Slider = () => {
             <CarouselItem className='lg:basis-1/3'><Image src={slide2} alt='slide2'/></CarouselItem>
             <CarouselItem className='lg:basis-1/3'><Image src={slide2} alt='slide2'/></CarouselItem>
         </CarouselContent>
-        <CarouselPrevious variant={"ghost"}/>
-        <CarouselNext variant={"ghost"}/>
+        <CarouselPrevious variant={"ghost"} className='hidden lg:block'/>
+        <CarouselNext variant={"ghost"}  className='hidden lg:block'/>
     </Carousel>
     </div>
 

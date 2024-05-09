@@ -52,12 +52,12 @@ export default function Homepage() {
                 <Navbar />
                 {/* <CategoriesBar /> */}
               </div>
-              <div className="mb-8 mt-32  lg:max-w-screen-xl lg:mx-auto">
+              <div className="mb-8 mt-28  lg:max-w-screen-xl lg:mx-auto">
                 {/* <Hero /> */}
               </div>
             </div>
             <div className="max-w-screen-2xl mx-auto">
-              <div className="w-[75%] mx-auto my-8 lg:w-full">
+              <div className="w-full mx-auto lg:w-full">
                 <Slider />
               </div>
               {/* <div className="w-full max-w-screen-xl mx-auto mt-12">
