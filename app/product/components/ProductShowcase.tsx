@@ -6,6 +6,7 @@ import { BsCash } from "react-icons/bs";
 import AddProductBtns from "@/app/components/AddProductBtns";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import product from "@/sanity/schemaTypes/product";
 const ProductShowcase = ({data} : {data : fullProduct}) => {
     const [quantity, setQuantity]= useState(1);
     const handleDecrement = () => {
@@ -33,18 +34,19 @@ const ProductShowcase = ({data} : {data : fullProduct}) => {
                                         <div className="bg-gray-100 max-w-max rounded-full p-2 mx-auto">
                                             <BsCash className="text-2xl"/>
                                         </div>
-                                        <p className="text-xs">Free Shipping</p>
-                                    </div>
-                                    <div className="max-w-max ">
-                                        <div className="bg-gray-100 max-w-max rounded-full p-2 mx-auto">
-                                            <Crown className="text-2xl"/>
-                                        </div>
-                                        <p className="text-xs">Royal Quality</p>
+                                        <p className="text-xs">Pay On Delivery</p>
                                     </div>
                                 </div>
+                                {
+                                    data.stock > 0 ? 
+                                    <p><span className="text-green-500 font-bold">Available </span>: {data.stock} units in stock</p>
+                                    :
+                                    <p className="text-red-600 font-bold">Product is out of stock</p>
+                                }
+                                
                             </div>
                             <div className="flex gap-3">
-                                <p className="font-bold text-indigo-600 text-xl">EGP</p>
+                                <p className="font-bold text-orange-400 text-xl">EGP</p>
                                 <p className="text-4xl font-bold">
                                     {data.price}
                                 </p>
@@ -52,15 +54,20 @@ const ProductShowcase = ({data} : {data : fullProduct}) => {
                             <div>
                                 {data.description}
                             </div>
-                            <div className="flex items-center gap-1">
-                                <p className="mr-2">Quanity : </p>
-                                <Button onClick={handleDecrement}>-</Button>
-                                <div className="px-4 py-2 border rounded-lg">
-                                    {quantity}
-                                </div>
-                                <Button onClick={() => setQuantity(quantity => quantity + 1)}>+</Button>
-                            </div>
-                            <AddProductBtns product={{ images: data.images, _id: data._id, name: data.name , price: data.price, quantity: quantity}}/>
+                            {
+                                data.stock > 0 &&
+                                <>
+                                    <div className="flex items-center gap-1">
+                                        <p className="mr-2">Quanity : </p>
+                                        <Button onClick={handleDecrement}>-</Button>
+                                        <div className="px-4 py-2 border rounded-lg">
+                                            {quantity}
+                                        </div>
+                                        <Button onClick={() => setQuantity(quantity => quantity + 1)}>+</Button>
+                                    </div>
+                                    <AddProductBtns product={{ images: data.images, _id: data._id, name: data.name , price: data.price, quantity: quantity}}/>
+                                </>
+                            }
                         </div>
                     </div>
 

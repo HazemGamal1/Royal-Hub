@@ -23,12 +23,16 @@ const ProductCard = ({ product, isOnSale} : PropTypes) => {
 
             <div className="mt-4 flex justify-between">
                 <div>
-                    <h3 className="text-sm justify-between text-gray-700 font-bold">
-                            {product.name}
+                    <h3 className="text-sm justify-between text-gray-700 font-medium">
+                            {product.name.split(" ").slice(0, 4).join(" ")}{product.name.split(" ").join(" ").length > 15 ? "..." : " "}
                     </h3>
+                    <p className="text-sm text-gray-900 flex gap-2 font-bold"><span className='text-orange-400'>EGP</span> {product.price}</p>
                     <p className="mt-1 text-sm text-gray-500">{product.categoryName}</p>
+                    {
+                        (product.stock < 10 && product.stock > 0) && <p className='text-sm text-[#F78B1E] max-w-max bg-[#FEF3E9] p-1 rounded-lg'>Only {product.stock} units available</p>
+                    }
+                    {product.stock === 0  && <p className='text-sm text-red-500'>Out of stock</p>}
                 </div>
-                <p className="text-sm font-medium text-gray-900 flex gap-2"><span className='text-indigo-600'>EGP</span> {product.price}</p>
             </div>
         </Link>
     </div>

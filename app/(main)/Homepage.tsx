@@ -1,18 +1,19 @@
 "use client"
 import Navbar from "@/app/components/Navbar";
-import Image from "next/image";
-import heroImg from '@/public/hero.png'
 import Hero from "@/app/components/Hero";
-import Footer from "@/app/components/Footer";
 import CategoriesBar from "../components/CategoriesBar";
 import { client } from "../lib/sanity";
+import heroImg from '@/public/hero.png'
 import { simplifiedProduct } from "../utils/interfaces/interface";
 import ProductCard from "../components/ProductCard";
 import { groq } from "next-sanity";
 import { useEffect, useState } from "react";
-import { Circles, Grid } from 'react-loader-spinner'
+import { Grid } from 'react-loader-spinner'
 import FullPageLoader from "../components/FullPageLoader";
-
+import Slider from "../components/Slider";
+import Image from "next/image";
+import DesktopPic from '@/public/GeneralENDESKTOP.png'
+import AppPic from '@/public/GeneralENAPP.png'
 export default function Homepage() {
   const [products, setProducts] = useState<simplifiedProduct[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -44,19 +45,27 @@ export default function Homepage() {
             <FullPageLoader /> 
           }
           <div >
+            
             <div className="relative">
-              <Image src={heroImg} priority alt="hero image" className="absolute animate-pulse -z-10 object-contain object-top top-10 lg:top-10 w-full h-full"/>
-
-              <div className=" backdrop-blur-lg bg-transparent fixed top-0 w-full z-[100]">
+              {/* <Image src={heroImg} priority alt="hero image" className="absolute animate-pulse -z-10 object-contain object-top top-10 lg:top-10 w-full h-full"/> */}
+              <div className="w-full z-[100]">
                 <Navbar />
                 <CategoriesBar />
               </div>
-              <div className="mb-8 mt-20">
-              <Hero />
+              <div className="mb-8 mt-20  lg:max-w-screen-xl lg:mx-auto">
+                <Hero />
               </div>
-
             </div>
-            <section className="md:max-w-screen-2xl mx-auto my-32">
+            <div className="max-w-screen-xl mx-auto">
+              <div className="w-[75%] mx-auto my-8 lg:w-full">
+                <Slider />
+              </div>
+              <div className="w-full mt-12">
+                <Image src={DesktopPic} alt="pic" className="lg:w-[80%] object-contain object-center mx-auto hidden lg:block"/>
+                <Image src={AppPic} alt="pic" className="lg:w-[80%] object-contain object-center mx-auto  lg:hidden"/>
+              </div>
+            </div>
+            <section className="md:max-w-screen-xl mx-auto ">
               <h1 className="font-bold my-4">All Products : </h1>
               {
                 isLoading ? 
@@ -74,7 +83,7 @@ export default function Homepage() {
                   Loading..
                 </div>
                 :
-                <div className=" grid grid-cols-2 md:grid-cols-3 px-4 lg:p-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-8 gap-y-4 ">
+                <div className="  grid grid-cols-2 md:grid-cols-3 px-4 lg:p-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-8 gap-y-4 ">
                     {
                       products.map((product, index) => (
                         <div key={index}>
@@ -90,7 +99,6 @@ export default function Homepage() {
           </div>
 
         </main>
-        <Footer />
-    </>
+        </>
   )
 }

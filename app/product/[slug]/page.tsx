@@ -15,6 +15,7 @@ export default function ProductPage({params} : {params: {slug : string}}) {
                 price,
                 name,
                 description,
+                stock,
                 "slug": slug.current,
                 "categoryName": category->name,
                 isOnSale
@@ -31,7 +32,7 @@ export default function ProductPage({params} : {params: {slug : string}}) {
                 product ?
                 <ProductShowcase data={product}/>
             :
-            <FullPageLoader />
+                <FullPageLoader />
             }
         </div>
     )

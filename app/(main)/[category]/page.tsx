@@ -1,10 +1,10 @@
 "use client"
 import { client } from '@/app/lib/sanity'
-import { simplifiedProduct } from '../utils/interfaces/interface'
-import ProductCard from '../components/ProductCard'
+import { simplifiedProduct } from '../../utils/interfaces/interface'
+import ProductCard from '../../components/ProductCard'
 import { useEffect, useState } from 'react'
 import { groq } from 'next-sanity'
-import FullPageLoader from '../components/FullPageLoader'
+import FullPageLoader from '../../components/FullPageLoader'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -13,7 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
-import useLoading from '../store/useLoading'
+import useLoading from '../../store/useLoading'
 
   export default function CategoryPage ({params} : {params : {category: string}}) {
     const [products, setProducts] = useState<simplifiedProduct[]>([]);
