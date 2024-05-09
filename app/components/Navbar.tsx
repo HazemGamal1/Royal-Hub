@@ -11,8 +11,8 @@ const Navbar = () => {
   const {cart} = useCart();
   const total = cart.reduce((acc, product) => acc +  (product.price  * product.quantity) , 0)
   return (
-    <nav className=" pt-3 fixed top-0 z-[100] bg-white bg-transparent w-full">
-        <div className=" px-4 max-w-screen-2xl mx-auto flex justify-between items-center">
+    <nav className="fixed top-0 z-[100] bg-white bg-transparent w-full">
+        <div className=" px-4  py-3 max-w-screen-2xl mx-auto flex justify-between items-center">
           <Link href="/">
           <h1 className="text-xl font-bold hover:text-indigo-600 duration-300 flex items-center gap-2 w-15 h-15">
             {/* <div className="bg-main text-center rounded-full overflow-hidden p-1.5">
@@ -40,10 +40,7 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-        <div className="">
           <CategoriesBar />
-
-        </div>
       </nav>
   )
 }

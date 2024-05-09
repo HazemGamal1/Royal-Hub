@@ -60,12 +60,12 @@ export default function Homepage() {
               <div className="w-[75%] mx-auto my-8 lg:w-full">
                 <Slider />
               </div>
-              <div className="w-full max-w-screen-xl mx-auto mt-12">
+              {/* <div className="w-full max-w-screen-xl mx-auto mt-12">
                 <Image src={DesktopPic} alt="pic" className="lg:w-[90%] mx-auto hidden lg:block"/>
                 <Image src={AppPic} alt="pic" className="lg:w-[80%] object-contain object-center mx-auto  lg:hidden"/>
-              </div>
+              </div> */}
             </div>
-            <section className="md:max-w-screen-xl mx-auto ">
+            <section className="md:max-w-screen-2xl mx-auto ">
               <h1 className="font-bold my-4">All Products : </h1>
               {
                 isLoading ? 

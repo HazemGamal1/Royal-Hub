@@ -6,8 +6,16 @@ import { BsCash } from "react-icons/bs";
 import AddProductBtns from "@/app/components/AddProductBtns";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbPage,
+    BreadcrumbSeparator,
+  } from "@/components/ui/breadcrumb"
 const ProductShowcase = ({data} : {data : fullProduct}) => {
-    const [quantity, setQuantity]= useState(1);
+    const [quantity, setQuantity]= useState<number>(1);
     const handleDecrement = () => {
         if(quantity > 1){
             setQuantity(quantity => quantity - 1);
@@ -15,8 +23,33 @@ const ProductShowcase = ({data} : {data : fullProduct}) => {
             return;
         }
     }
+    const handleIncrement = () => {
+        if(quantity === data.stock){
+            setQuantity(Number(data.stock))
+        }else{
+            setQuantity(quantity => quantity + 1);
+        }
+    }
+    const changeQuantity = (e: any) => {
+        if(e.target.value > data.stock){
+            setQuantity(Number(data.stock));
+        }else{
+            setQuantity(Number(e.target.value))
+        }
+    }
   return (
-    <div className="mx-auto max-w-screen-xl px-4 md:px-8 sticky ">
+    <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+            <Breadcrumb className="mb-8">
+                <BreadcrumbList>
+                <BreadcrumbItem>
+                    <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                    <BreadcrumbPage>{data.name}</BreadcrumbPage>
+                </BreadcrumbItem>
+                </BreadcrumbList>
+            </Breadcrumb>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <ImageGallery images={data.images} isOnSale={data.isOnSale}/>
                         <div className="flex flex-col gap-8">
@@ -59,8 +92,8 @@ const ProductShowcase = ({data} : {data : fullProduct}) => {
                                     <div className="flex items-center">
                                         <p className="mr-2">Quanity : </p>
                                         <Button onClick={handleDecrement} className="rounded-none">-</Button>
-                                        <input type="text" className="px-4 py-2 border  w-[5rem] text-center" value={quantity} onChange={(e : any) => setQuantity(e.target.value)}/>
-                                        <Button onClick={() => setQuantity(quantity => quantity + 1)} className="rounded-none">+</Button>
+                                        <input type="text" className="px-4 py-2   w-[5rem] text-center" value={quantity} onChange={(e : any) => changeQuantity(e)} />
+                                        <Button onClick={handleIncrement} className="rounded-none">+</Button>
                                     </div>
                                     <AddProductBtns product={{ images: data.images, _id: data._id, name: data.name , price: data.price, quantity: quantity}}/>
                                 </>

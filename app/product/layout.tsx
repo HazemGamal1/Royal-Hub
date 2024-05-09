@@ -12,7 +12,7 @@ const layout = ({children } : {children: React.ReactNode}) => {
       <div className="min-h-screen">
         <Navbar />
         <CategoriesBar />
-        <div className="relative py-12 my-32">
+        <div className="relative py-12 my-24">
           {children}
         </div>
       </div>
