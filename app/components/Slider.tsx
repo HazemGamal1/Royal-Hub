@@ -2,7 +2,6 @@ import React from 'react'
 import slide1 from '@/public/SlidersENAPP.png'
 import slide2 from '@/public/ervs.png'
 import slide3 from '@/public/1g.png'
-import slide4 from '@/public/AppliancesEN.png'
 import {
     Carousel,
     CarouselContent,

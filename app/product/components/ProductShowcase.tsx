@@ -1,12 +1,11 @@
 "use client"
 import ImageGallery from "@/app/components/ImageGallery"
 import { fullProduct } from "@/app/utils/interfaces/interface"
-import { Crown, Truck } from "lucide-react";
+import {Truck } from "lucide-react";
 import { BsCash } from "react-icons/bs";
 import AddProductBtns from "@/app/components/AddProductBtns";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import product from "@/sanity/schemaTypes/product";
 const ProductShowcase = ({data} : {data : fullProduct}) => {
     const [quantity, setQuantity]= useState(1);
     const handleDecrement = () => {
