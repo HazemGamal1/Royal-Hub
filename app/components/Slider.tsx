@@ -17,7 +17,7 @@ const Slider = () => {
     <div className='text-center '>
     <Carousel plugins={[
         Autoplay({
-            delay: 6000,
+            delay: 4000,
         }),
     ]} >
         <CarouselContent>

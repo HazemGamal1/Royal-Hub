@@ -7,14 +7,16 @@ import Image from "next/image";
 import { urlFor } from "../../lib/sanity";
 import { Button } from "@/components/ui/button"
 import {  useState } from "react"
-import { fullProduct, simplifiedProduct } from "../../utils/interfaces/interface"
 import { client } from "../../lib/sanity"
 import { IoCart } from "react-icons/io5";
+import { toast } from "react-toastify";
+import { FaCheck } from "react-icons/fa";
 // import product from "@/sanity/schemaTypes/product"
 const Cart = () => {
     const [customer, setCustomer] = useState<string>();
     const [customerAddress, setCustomerAddress] = useState<string>();
     const [customerNumber, setCustomerNumber] = useState<string>();
+    const [confirmed, setConfirmed] = useState<boolean>(false);
     const {cart} = useCart();
     const now = new Date();
     const formattedDate = now.toISOString();
@@ -40,11 +42,12 @@ const Cart = () => {
         try {
             const result = await client.create(orderDoc);
             console.log("Order placed", result);
-            alert('Order has beeen placed successfully')
+            toast.success("Order has been placed");
         }catch(error){
             console.log("Error placing order", error);
-            alert("problem placing order")
+            toast.success("Problem placting order");
         }
+        setConfirmed(true);
     }
 
     console.log(customer);
@@ -71,25 +74,44 @@ const Cart = () => {
                                                 <p className="font-bold">{product.name}</p>
                                                 {product.quantity}
                                             </div>
-                                            <p><span className="text-indigo-600 font-bold">EGP</span> {product.price}</p>
+                                            <p><span className="text-orange-300 font-bold">EGP</span> {product.price}</p>
                                         </li>
                                     ))
                                 }
 
                             </ul>
                         </div>
+                        
                         <div className="w-full lg:w-[25rem] bg-gray-100 rounded-lg flex flex-col justify-between p-4">
-                            <p className="font-bold">Cart Total: {total}</p>
-                            <form >
-                                <label htmlFor="customer">Name : </label>
-                                <input type="text " className="w-full bg-gray-200 rounded-lg p-2" id="customer" onChange={(e) => setCustomer(e.target.value)}/>
-                                <label htmlFor="address">Address : </label>
-                                <input type="text " className="w-full bg-gray-200 rounded-lg p-2" id="address" onChange={(e) => setCustomerAddress(e.target.value)}/>
-                                <label htmlFor="phoneNumber">Phone Number : </label>
-                                <input type="text " className="w-full bg-gray-200 rounded-lg p-2" id="phoneNumber" onChange={(e) => setCustomerNumber(e.target.value)}/>
-                            </form>
-                            <div className="mt-4">
-                                <Button onClick={handlePlaceOrder} className="w-full" >Confirm order</Button>        
+                            {
+                                !confirmed &&
+                                <>
+                                    <p className="font-bold">Cart Total: {total}</p>
+                                    <form className="my-4">
+                                        <label htmlFor="customer">Name : </label>
+                                        <input type="text " className="w-full bg-gray-200 rounded-lg p-2" id="customer" onChange={(e) => setCustomer(e.target.value)}/>
+                                        <label htmlFor="address">Address : </label>
+                                        <input type="text " className="w-full bg-gray-200 rounded-lg p-2" id="address" onChange={(e) => setCustomerAddress(e.target.value)}/>
+                                        <label htmlFor="phoneNumber">Phone Number : </label>
+                                        <input type="text " className="w-full bg-gray-200 rounded-lg p-2" id="phoneNumber" onChange={(e) => setCustomerNumber(e.target.value)}/>
+                                    </form>
+                                </>
+                            }
+                            <div className="">
+                                {
+                                    confirmed ? 
+                                    <div className="text-center">
+                                        <div className="flex items-center justify-center gap-2 w-full font-bold">
+                                            <div>
+                                                <FaCheck className="text-orange-400"/> 
+                                            </div>
+                                            <p>Order Confirmed</p>
+                                        </div> 
+                                        Thank you for using Royal Hub
+                                    </div>
+                                    :
+                                    <Button onClick={handlePlaceOrder} className="w-full" >Confirm order</Button>        
+                                }
                             </div>
                         </div>
                     </div>

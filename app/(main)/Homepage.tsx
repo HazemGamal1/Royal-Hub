@@ -61,7 +61,7 @@ export default function Homepage() {
                 <Slider />
               </div>
               <div className="w-full mt-12">
-                <Image src={DesktopPic} alt="pic" className="lg:w-[80%] object-contain object-center mx-auto hidden lg:block"/>
+                <Image src={DesktopPic} alt="pic" className="lg:w-[90%] mx-auto hidden lg:block"/>
                 <Image src={AppPic} alt="pic" className="lg:w-[80%] object-contain object-center mx-auto  lg:hidden"/>
               </div>
             </div>
