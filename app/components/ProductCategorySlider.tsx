@@ -6,13 +6,10 @@ import {
     Carousel,
     CarouselContent,
     CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
   } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
-import Image from 'next/image'
 import ProductCard from './ProductCard'
-import category from '@/sanity/schemaTypes/category'
+
 const ProductCategorySlider = (params: {category : string, flexBasis: string} ) => {
     const [products, setProducts] = useState<simplifiedProduct[]>([]);
 
