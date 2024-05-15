@@ -20,7 +20,7 @@ const Slider = () => {
             delay: 4000,
         }),
     ]} >
-        <CarouselContent>
+        <CarouselContent className='cursor-grabbing5'>
             <CarouselItem className='lg:basis-1/3'><Image src={slide1} alt='slide1'/></CarouselItem>
             <CarouselItem className='lg:basis-1/3 '><Image src={slide2} alt='slide2'/></CarouselItem>
             <CarouselItem className='lg:basis-1/3'><Image src={slide3} alt='slide3'/></CarouselItem>

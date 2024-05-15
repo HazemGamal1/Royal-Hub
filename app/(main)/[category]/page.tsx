@@ -18,6 +18,16 @@ import useLoading from '../../store/useLoading'
   export default function CategoryPage ({params} : {params : {category: string}}) {
     const [products, setProducts] = useState<simplifiedProduct[]>([]);
     const {setIsLoading} = useLoading();
+    let finalString = "";
+    if(params.category.includes("%20")){
+      const substringToRemove = "%20";
+      const startIdx = params.category.indexOf(substringToRemove);
+      const endIndx = startIdx + substringToRemove.length;
+      finalString = params.category.substring(0, startIdx) + " " +  params.category.substring(endIndx);
+    }else{
+      finalString = params.category;
+    }
+    
     useEffect(() => {
       async function getData(category: string){
         setIsLoading(true);
@@ -33,12 +43,12 @@ import useLoading from '../../store/useLoading'
         setProducts(products);
         setIsLoading(false);
       }
-      getData(params.category);
+      getData(finalString);
     }, [])
   
   return (
     <div>
-      <div className=''>
+      <div className='px-4 lg:px-0'>
         <div>
           <Breadcrumb>
             <BreadcrumbList>
@@ -51,12 +61,12 @@ import useLoading from '../../store/useLoading'
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>{params.category}</BreadcrumbPage>
+                <BreadcrumbPage>{finalString}</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
         </div>
-        <h1 className='font-bold text-2xl my-6'>{params.category} Products</h1>
+        <h1 className='font-bold text-2xl my-6'>{finalString} Products</h1>
         <ul className='font-bold text-2xl text-black grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-x-12 px-6'>
           {products.map((product, index) => (
             <li key={index}>

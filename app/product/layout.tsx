@@ -11,8 +11,7 @@ const layout = ({children } : {children: React.ReactNode}) => {
     <div className="flex flex-col justify-between ">
       <div className="min-h-screen">
         <Navbar />
-        <CategoriesBar />
-        <div className="relative py-12 my-24">
+        <div className="relative py-12 my-8">
           {children}
         </div>
       </div>

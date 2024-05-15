@@ -3,21 +3,35 @@ import { simplifiedProduct } from '../utils/interfaces/interface'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Heart } from 'lucide-react'
+import useLoading from '../store/useLoading'
+import { Skeleton } from '@/components/ui/skeleton'
+import { useState } from 'react'
 interface PropTypes {
     product: simplifiedProduct,
     isOnSale: boolean
 }
 
 const ProductCard = ({ product, isOnSale} : PropTypes) => {
+    const {isLoading} = useLoading();
   return (
-    <div className="group relative bg-white p-3 rounded-lg " >
+    <div className="group relative bg-white p-3 rounded-lg min-w-32 min-h-[19rem] lg:min-h-[28rem]" >
         {isOnSale && <span className="absolute z-10 left-0 top-0 rounded-br-lg bg-red-500 px-3 py-1.5 text-sm uppercase tracking-wider text-white bg-opacity-95">Sale</span>}
         <div className='absolute top-2 right-2 bg-gray-100 group rounded-lg p-1 opacity-0 z-10 group-hover:opacity-100 cursor-pointer'>
             <Heart className='opacity-0 group-hover:opacity-100 duration-300'/>
         </div>
         <Link href={`/product/${product.slug}`}>
-            <div className="aspect-square w-full  overflow-hidden rounded-md  group-hover:opacity-75 lg:h-80 cursor-pointer ">
-                <Image src={product.imageUrl} alt="product photo" className="w-full h-full object-contain object-center lg:h-full lg:w-full group-hover:scale-105 duration-300" width={300} height={300}/>
+            <div className="aspect-square w-full  rounded-md  group-hover:opacity-75 lg:h-80 cursor-pointer ">
+                {
+                    isLoading ? 
+                    <div className='mx-auto max-w-max'>
+                        <Skeleton className='w-[250px] h-[250px]  rounded-lg '/>
+                    </div>
+                    :
+                    <>
+                    <Image src={product.imageUrl} alt="product photo" className="w-full h-full object-contain object-center lg:h-full lg:w-full group-hover:scale-105 duration-300" width={300} height={300}/>
+                    </>
+
+                }
                 
             </div>
 

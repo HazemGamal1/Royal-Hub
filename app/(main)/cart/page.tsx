@@ -65,7 +65,7 @@ const Cart = () => {
         <div>
             {
                 cart.length > 0 ?
-                <div className="mt-32 w-full lg:max-w-screen-2xl mx-auto ">
+                <div className="mt-10 w-full lg:max-w-screen-2xl mx-auto ">
                     <div className="mb-7 px-4">
                         <h1 className="font-bold text-2xl ">Shopping Cart </h1>
                         <p><span className="font-bold">{cart.length} items </span> in your bag</p>
@@ -75,7 +75,7 @@ const Cart = () => {
                             <ul className="flex flex-col gap-8">
                                 {
                                     cart.map((product, index) => (
-                                        <li className="flex justify-between gap-5 items-center bg-gray-100 px-4 rounded-lg" key={index}>
+                                        <li className={`flex justify-between gap-5 items-center pb-4 ${index != cart.length - 1 && "border-b border-b-main"} px-4`} key={index}>
                                             <div className="flex gap-5 items-center">
                                                 <div className="w-[5rem] h-[5rem]">
                                                     <Image src={urlFor(product.images[0]).url()} alt="product image" width={100} height={100} className="object-scale-down object-center w-full h-full"/>
@@ -91,10 +91,10 @@ const Cart = () => {
                             </ul>
                         </div>
                         
-                        <div className="w-full lg:w-[25rem] bg-gray-100 rounded-lg flex flex-col justify-between p-4">
+                        <div className="w-full lg:w-[25rem] bg-gray-100 rounded-lg flex flex-col justify-between p-4 max-h-[20rem] sticky top-32">
                             {
                                 !confirmed &&
-                                <>
+                                <div className="">
                                     <p className="font-bold">Cart Total: {total}</p>
                                     <form className="my-4">
                                         <label htmlFor="customer">Name : </label>
@@ -104,7 +104,7 @@ const Cart = () => {
                                         <label htmlFor="phoneNumber">Phone Number : </label>
                                         <input type="text " className="w-full bg-gray-200 rounded-lg p-2" id="phoneNumber" onChange={(e) => setCustomerNumber(e.target.value)}/>
                                     </form>
-                                </>
+                                </div>
                             }
                             <div className="">
                                 {

@@ -12,9 +12,7 @@ const Layout = ({children} : {children: React.ReactNode}) => {
         isLoading && 
         <FullPageLoader/>
       }
-        <CategoriesBar />
-        <div className="my-32  max-w-screen-2xl mx-auto">
-         
+        <div className="my-10 max-w-screen-2xl mx-auto">
             {children}
         </div>
     </div>
