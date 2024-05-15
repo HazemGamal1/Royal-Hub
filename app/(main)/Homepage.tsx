@@ -95,7 +95,7 @@ export default function Homepage() {
                   <div className="w-full">
                     <h1 className='my-4 font-bold px-4 lg:px-0'>Perfumes Products : </h1>
                     <div className="relative w-full lg:h-[20rem] my-4 hover:opacity-85 duration-300">
-                      <Link  href="/Perumes">
+                      <Link  href="/Perfumes">
                         <Image src={ad3} alt="molfix ad" className="w-full h-full object-top object-cover "/>
                       </Link>
                     </div>
