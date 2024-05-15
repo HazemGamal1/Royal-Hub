@@ -4,7 +4,6 @@ import { simplifiedProduct } from '../../utils/interfaces/interface'
 import ProductCard from '../../components/ProductCard'
 import { useEffect, useState } from 'react'
 import { groq } from 'next-sanity'
-import FullPageLoader from '../../components/FullPageLoader'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -67,7 +66,7 @@ import useLoading from '../../store/useLoading'
           </Breadcrumb>
         </div>
         <h1 className='font-bold text-2xl my-6'>{finalString} Products</h1>
-        <ul className='font-bold text-2xl text-black grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-x-12 px-6'>
+        <ul className='font-bold text-2xl text-black grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-x-12 gap-y-8 px-6'>
           {products.map((product, index) => (
             <li key={index}>
               <ProductCard product={product}  isOnSale={product.isOnSale}/>

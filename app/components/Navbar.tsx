@@ -33,7 +33,7 @@ const Navbar = () => {
             {/* <Button>Sign Up</Button> */}
 
             {/* <button className="text-xl hover:text-main flex items-center gap-2"><FaHeart /> <p className="text-md hidden lg:block">Wishlist</p></button> */}
-              <button className="flex gap-2 items-center hover:bg-slate-100 p-2 rounded-lg hover:text-main"><BsGlobe /> EN</button>
+              {/* <button className="flex gap-2 items-center hover:bg-slate-100 p-2 rounded-lg hover:text-main"><BsGlobe /> EN</button> */}
               <Link href={"/cart"}>
                 <button className="relative flex items-center gap-3 text-2xl  p-2 rounded-lg hover:text-main hover:bg-slate-100">
                   <IoCart className="w-6 h-6"/> 

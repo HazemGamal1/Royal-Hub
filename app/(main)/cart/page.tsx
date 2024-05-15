@@ -126,7 +126,7 @@ const Cart = () => {
                     </div>
                 </div>
                 :
-                <div className="w-screen h-screen grid place-content-center text-center">
+                <div className="w-full h-screen grid place-content-center text-center">
                     <div className="mx-auto max-w-max">
                         <IoCart className="text-7xl"/>
                     </div>
