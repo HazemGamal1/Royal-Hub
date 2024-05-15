@@ -6,6 +6,8 @@ import {
     Carousel,
     CarouselContent,
     CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
   } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
 import ProductCard from './ProductCard'
@@ -32,17 +34,18 @@ const ProductCategorySlider = (params: {category : string, flexBasis: string} ) 
     <div>
       <Carousel plugins={[
         Autoplay({
-            delay: 8000,
+            delay: 3000,
         }),
     ]} >
-        <CarouselContent className='cursor-grabbing5'>
+        <CarouselContent>
             {
-                products.map((product, index) => (
-                    <CarouselItem key={index} className={`basis-1/2 lg:basis-${params.flexBasis}`}><ProductCard product={product} isOnSale={product.isOnSale}/></CarouselItem>
+                products.map((product) => (
+                    <CarouselItem className={`basis-${params.flexBasis}`}><ProductCard product={product} isOnSale={product.isOnSale}/></CarouselItem>
                 ))
             }
-            
         </CarouselContent>
+        <CarouselPrevious variant={"ghost"} className='hidden lg:block'/>
+        <CarouselNext variant={"ghost"}  className='hidden lg:block'/>
     </Carousel>
     </div>
   )

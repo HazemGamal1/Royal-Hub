@@ -77,7 +77,7 @@ export default function Homepage() {
                   </Link>
                 </div>
                 <div className="px-5 lg:px-0">
-                  <ProductCategorySlider category="Baby care"  flexBasis="1/5"/>
+                  <ProductCategorySlider category="Baby care" flexBasis="1/4"/>
                 </div>
                 <div className="flex flex-col lg:flex-row gap-4 bg-[#940ec011] lg:px-4 py-4 rounded-lg">
                   <div className="w-full">
