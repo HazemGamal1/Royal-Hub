@@ -39,8 +39,8 @@ const ProductCategorySlider = (params: {category : string, flexBasis: string} ) 
     ]} >
         <CarouselContent>
             {
-                products.map((product) => (
-                    <CarouselItem className={`basis-${params.flexBasis}`}><ProductCard product={product} isOnSale={product.isOnSale}/></CarouselItem>
+                products.map((product, index) => (
+                    <CarouselItem key={index} className={`basis-${params.flexBasis}`}><ProductCard product={product} isOnSale={product.isOnSale}/></CarouselItem>
                 ))
             }
         </CarouselContent>
