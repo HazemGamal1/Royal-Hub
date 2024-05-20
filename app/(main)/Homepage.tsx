@@ -18,27 +18,28 @@ import ad from '@/public/ad1.jpg'
 import ad2 from '@/public/ad2.jpg'
 import ad3 from '@/public/ad3.jpg'
 import Link from "next/link";
+import Footer from "../components/Footer";
 export default function Homepage() {
   const [products, setProducts] = useState<simplifiedProduct[]>([]);
   const {isLoading, setIsLoading} = useLoading();
-  useEffect(() => {
-    async function getData(){
-      setIsLoading(true);
-      const products = await client.fetch<simplifiedProduct[]>(groq`*[_type == "product"]{
-        name,
-        price,
-        stock,
-        "categoryName": category->name,
-        "imageUrl": images[0].asset->url,
-        "slug": slug.current,
-        isOnSale
-      }`);
-      setProducts(products);
-      setIsLoading(false);
-    }
+  // useEffect(() => {
+  //   async function getData(){
+  //     setIsLoading(true);
+  //     const products = await client.fetch<simplifiedProduct[]>(groq`*[_type == "product"]{
+  //       name,
+  //       price,
+  //       stock,
+  //       "categoryName": category->name,
+  //       "imageUrl": images[0].asset->url,
+  //       "slug": slug.current,
+  //       isOnSale
+  //     }`);
+  //     setProducts(products);
+  //     setIsLoading(false);
+  //   }
 
-    getData();
-  }, [])
+  //   getData();
+  // }, [])
 
   return (
     <>
@@ -107,7 +108,7 @@ export default function Homepage() {
                 
               </div>
               <h1 className="font-bold my-4">All Products : </h1>
-                <div className="grid grid-cols-2 md:grid-cols-3 px-4 lg:p-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-8 gap-y-4 ">
+                <div className="grid grid-cols-2 md:grid-cols-3 px-4 lg:p-0 lg:grid-cols-4 xl:grid-cols-5 gap-x-8 gap-y-4 ">
                     {
                       products.map((product, index) => (
                         <div key={index}>
@@ -120,7 +121,7 @@ export default function Homepage() {
                 </div>
             </section>
             </div>
-
+            <Footer />
         </main>
         </>
   )
