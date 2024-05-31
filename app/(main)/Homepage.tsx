@@ -52,9 +52,6 @@ export default function Homepage() {
           <div>
             
               {/* <Image src={heroImg} priority alt="hero image" className="absolute animate-pulse -z-10 object-contain object-top top-10 lg:top-10 w-full h-full"/> */}
-              <div className="bg-[#FF9901] ">
-                <Image src={sale} alt="sale image" width={1100} priority quality={100} className="object-contain object-center mx-auto"/>
-              </div>
               <Navbar />
               <div className="lg:mt-12 lg:max-w-screen-xl lg:mx-auto">
                 {/* <Hero /> */}

@@ -23,11 +23,11 @@ const Navbar = () => {
           </h1>
           </Link>
             <div className="flex-1 mx-52 gap-4 items-center hidden lg:flex">
-              <div className="flex-1 flex items-center bg-gray-100 rounded-md py-1 px-2 border-md lg:flex focus:outline-none focus:border-indigo-500 focus:shadow-lg">
+              {/* <div className="flex-1 flex items-center bg-gray-100 rounded-md py-1 px-2 border-md lg:flex focus:outline-none focus:border-indigo-500 focus:shadow-lg">
                 <label htmlFor="search" className="cursor-pointer text-gray-500 hover:text-indigo-600"><Search /></label>
                 <input type="text"  name="" id="search" placeholder="Search products and categories" className="w-full p-1 bg-transparent  border-transparent placeholder-black rounded-md focus:outline-none"/>
               </div>
-                <Button className="uppercase">Search</Button> 
+                <Button className="uppercase">Search</Button>  */}
             </div>
           <div className="flex gap-4 items-center">
             {/* <Button>Sign Up</Button> */}
