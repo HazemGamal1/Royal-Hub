@@ -9,22 +9,22 @@ import { groq } from 'next-sanity';
 const CategoriesBar = () => {
   const [categories, setCategories] = useState<category[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  // useEffect(() => {
-  //     const  getData = async () => {
-  //       setIsLoading(true);
-  //       const categories = await client.fetch<category[]>(groq`*[_type == "category"]{
-  //         _id,
-  //         name,
-  //         description
-  //       }`)
+  useEffect(() => {
+      const  getData = async () => {
+        setIsLoading(true);
+        const categories = await client.fetch<category[]>(groq`*[_type == "category"]{
+          _id,
+          name,
+          description
+        }`)
   
-  //       setCategories(categories);
-  //       setIsLoading(false);
-  //     }
-  //     getData();
+        setCategories(categories);
+        setIsLoading(false);
+      }
+      getData();
     
 
-  // }, [])
+  }, [])
   return (
     
     <div className=" bg-[#212121] text-white text-sm lg:text-sm text-nowrap  w-full z-[100]">

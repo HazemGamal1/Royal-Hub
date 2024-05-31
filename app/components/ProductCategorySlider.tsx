@@ -15,21 +15,21 @@ import ProductCard from './ProductCard'
 const ProductCategorySlider = (params: {category : string, flexBasis: string} ) => {
     const [products, setProducts] = useState<simplifiedProduct[]>([]);
 
-    // useEffect(() => {
-    //     async function getData(category: string){
-    //         const products = await client.fetch<simplifiedProduct[]>(groq`*[_type == "product" && category->name == "${category}"] {
-    //           name,
-    //           price,
-    //           stock,
-    //           "categoryName": category->name,
-    //           "imageUrl": images[0].asset->url,
-    //           "slug": slug.current,
-    //           isOnSale
-    //         }`)
-    //         setProducts(products);
-    //       }
-    //       getData(params.category);
-    // })
+    useEffect(() => {
+        async function getData(category: string){
+            const products = await client.fetch<simplifiedProduct[]>(groq`*[_type == "product" && category->name == "${category}"] {
+              name,
+              price,
+              stock,
+              "categoryName": category->name,
+              "imageUrl": images[0].asset->url,
+              "slug": slug.current,
+              isOnSale
+            }`)
+            setProducts(products);
+          }
+          getData(params.category);
+    })
   return (
     <div>
       <Carousel plugins={[

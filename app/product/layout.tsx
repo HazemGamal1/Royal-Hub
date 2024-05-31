@@ -15,7 +15,7 @@ const layout = ({children } : {children: React.ReactNode}) => {
           {children}
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
       <ToastContainer theme="light" position="top-left"/>
     </div>
   )
