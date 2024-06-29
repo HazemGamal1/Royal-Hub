@@ -27,7 +27,7 @@ const CategoriesBar = () => {
   }, [])
   return (
     
-    <div className=" bg-[#212121] text-white text-sm lg:text-sm text-nowrap  w-full z-[100]">
+    <div className=" bg-[#232F3E] text-white text-sm lg:text-sm text-nowrap  w-full z-[100] px-4 ">
       <div className="max-w-screen-2xl mx-auto flex py-3 font-bold px-4 lg:px-0">
       <p className="border-r pr-3 border-main mr-4 flex items-center gap-2 cursor-pointer">All Categories <MdKeyboardArrowDown className='text-lg -rotate-90'/></p>
       <ul className="flex gap-5 overflow-x-auto scroll-smooth no-scrollbar">

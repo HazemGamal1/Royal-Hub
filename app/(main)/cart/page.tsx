@@ -1,7 +1,4 @@
 "use client"
-
-import Footer from "../../components/Footer";
-import Navbar from "../../components/Navbar";
 import useCart from "../../store/useCart";
 import Image from "next/image";
 import { urlFor } from "../../lib/sanity";
@@ -12,7 +9,7 @@ import { IoCart } from "react-icons/io5";
 import { toast } from "react-toastify";
 import { FaCheck } from "react-icons/fa";
 import FullPageLoader from "@/app/components/FullPageLoader";
-// import product from "@/sanity/schemaTypes/product"
+
 const Cart = () => {
     const [customer, setCustomer] = useState<string>();
     const [customerAddress, setCustomerAddress] = useState<string>();
@@ -48,14 +45,12 @@ const Cart = () => {
             toast.success("Order has been placed");
         }catch(error){
             console.log("Error placing order", error);
-            toast.success("Problem placting order");
+            toast.success("Problem placing order");
         }
         setLoading(false);
         setConfirmed(true);
-        
     }
 
-    console.log(customer);
   return (
     <div className="flex flex-col justify-between min-h-screen">
         {

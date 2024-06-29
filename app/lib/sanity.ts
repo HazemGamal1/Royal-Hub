@@ -5,7 +5,7 @@ export const client = createClient({
     projectId: 'qsbs10y6',
     dataset: 'production',
     apiVersion: '2024-05-04',
-    token: 'skw3QqztyswXK8Wcnq5x3n4RvovwriheQSWcmVb80LNSjDjgD5Jrg2gqxDGESOp1obqZsLUbFL25MM7OFuTMer73dyrR8FlLU5tvp0IwtutIwBigh6ACRTtDwupLCNlrJSgxgvsJeqw5gdZxO5S58w1srPgjTHnbxesC2xXVp1bzjsteBXdw',
+    // token: 'skoar0N1RlgYZc3muUppoMeypGUnCyDbxOZmfkMlakCYuq5jsD48fruSuvdvjEUCHdEoJEuaNMbkgFENNmS0zVHk3uoARqwOZ3WnrgoOSHhoZ2cARCqXdTT8wtBluKvoUyZ5LvCEoMTZHKDnWZW0194hsjnh7KJCc3vLGo8JJjbeyCzZRMLS',
     useCdn: false,
     ignoreBrowserTokenWarning: true
 })

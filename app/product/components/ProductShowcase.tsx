@@ -52,11 +52,11 @@ const ProductShowcase = ({data} : {data : fullProduct}) => {
             </Breadcrumb>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <ImageGallery images={data.images} isOnSale={data.isOnSale}/>
-                        <div className="flex flex-col gap-8">
+                        <div className="flex flex-col gap-8 mx-auto text-center md:text-left">
                             <div>
                                 <h1 className="font-semibold text-2xl md:text-4xl">{data.name}</h1>
-                                <div className="flex gap-4 my-6">
-                                    <div className="max-w-max">
+                                <div className="flex gap-4 my-6 max-w-max md:mx-0 mx-auto">
+                                    <div className="max-w-max ">
                                         <div className="bg-gray-100 max-w-max rounded-full p-2 mx-auto">
                                             <Truck/>
                                         </div>
@@ -77,7 +77,7 @@ const ProductShowcase = ({data} : {data : fullProduct}) => {
                                 }
                                 
                             </div>
-                            <div className="flex gap-3">
+                            <div className="flex gap-3 max-w-max mx-auto md:mx-0">
                                 <p className="font-bold text-main text-xl">EGP</p>
                                 <p className="text-4xl font-bold">
                                     {data.price}
