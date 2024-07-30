@@ -14,6 +14,7 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
   } from "@/components/ui/breadcrumb"
+  
 const ProductShowcase = ({data} : {data : fullProduct}) => {
     const [quantity, setQuantity]= useState<number>(1);
     const handleDecrement = () => {
@@ -89,13 +90,16 @@ const ProductShowcase = ({data} : {data : fullProduct}) => {
                             {
                                 data.stock > 0 &&
                                 <>
-                                    <div className="flex items-center">
+                                    <div className="flex items-center mx-auto">
                                         <p className="mr-2">Quanity : </p>
                                         <Button onClick={handleDecrement} className="rounded-none">-</Button>
                                         <input type="text" className="px-4 py-2   w-[5rem] text-center" value={quantity} onChange={(e : any) => changeQuantity(e)} />
                                         <Button onClick={handleIncrement} className="rounded-none">+</Button>
                                     </div>
-                                    <AddProductBtns product={{ images: data.images, _id: data._id, name: data.name , price: data.price, quantity: quantity}}/>
+                                    <div className="w-full">
+                                        <AddProductBtns product={{ images: data.images, _id: data._id, name: data.name , price: data.price, quantity: quantity}}/>
+
+                                    </div>
                                 </>
                             }
                         </div>

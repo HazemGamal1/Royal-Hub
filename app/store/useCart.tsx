@@ -10,14 +10,19 @@ interface useCartType {
     clearCart: () => void
 }
 
-const useCart = create<useCartType>(
-    (set) => ({
-        cart: [],
-        setCart: (arr: cartItem[]) => set({cart: arr}),
-        addToCart: (item : cartItem) => set(state => ({cart : [...state.cart, item]})),
-        removeFromCart: (name : string) => set(state => ({cart: state.cart.filter(product => product.name !== name)})),
-        clearCart: () => set({cart: []})
-    })
+const useCart = create<useCartType>()(
+    persist(
+        (set) => ({
+            cart: [],
+            setCart: (arr: cartItem[]) => set({cart: arr}),
+            addToCart: (item : cartItem) => set(state => ({cart : [...state.cart, item]})),
+            removeFromCart: (name : string) => set(state => ({cart: state.cart.filter(product => product.name !== name)})),
+            clearCart: () => set({cart: []})
+        }),
+        {
+            name: 'cart-storage',
+        }
+    )
 );
 
 export default useCart;

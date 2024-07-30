@@ -26,7 +26,7 @@ const AddProductBtns = ({ product } : { product : cartItem}) => {
         });
     }
   return (
-    <div className="flex gap-5">
+    <div className="flex flex-row justify-center lg:flex-col gap-5 mx-auto lg:mx-0">
         <Button onClick={() => handleAddProduct(product)} className="flex gap-3"><IoCart className="text-lg"/> Add To Cart</Button>
         <Button variant={"ghost"}>Checkout</Button>
     </div>

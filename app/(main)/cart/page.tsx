@@ -9,6 +9,7 @@ import { IoCart } from "react-icons/io5";
 import { toast } from "react-toastify";
 import { FaCheck } from "react-icons/fa";
 import FullPageLoader from "@/app/components/FullPageLoader";
+import Navbar from "@/app/components/Navbar";
 
 const Cart = () => {
     const [customer, setCustomer] = useState<string>();
@@ -16,7 +17,7 @@ const Cart = () => {
     const [customerNumber, setCustomerNumber] = useState<string>();
     const [confirmed, setConfirmed] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
-    const {cart} = useCart();
+    const { cart } = useCart();
     const now = new Date();
     const formattedDate = now.toISOString();
     const total = cart.reduce((acc, product) => acc +  (product.price  * product.quantity) , 0)
@@ -51,6 +52,7 @@ const Cart = () => {
         setConfirmed(true);
     }
 
+    console.log(cart);
   return (
     <div className="flex flex-col justify-between min-h-screen">
         {
@@ -58,6 +60,7 @@ const Cart = () => {
             <FullPageLoader />
         }
         <div>
+        <Navbar />
             {
                 cart.length > 0 ?
                 <div className="mt-10 w-full lg:max-w-screen-2xl mx-auto ">
@@ -89,7 +92,7 @@ const Cart = () => {
                         <div className="w-full lg:w-[25rem] bg-gray-100 rounded-lg flex flex-col justify-between p-4 max-h-[20rem] sticky top-32">
                             {
                                 !confirmed &&
-                                <div className="">
+                                <div>
                                     <p className="font-bold">Cart Total: {total}</p>
                                     <form className="my-4">
                                         <label htmlFor="customer">Name : </label>

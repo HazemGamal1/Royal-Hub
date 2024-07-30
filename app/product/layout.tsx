@@ -11,11 +11,10 @@ const layout = ({children } : {children: React.ReactNode}) => {
     <div className="flex flex-col justify-between ">
       <div className="min-h-screen">
         <Navbar />
-        <div className="relative py-12 my-8">
+        <div className="relative py-2 my-7">
           {children}
         </div>
       </div>
-      {/* <Footer /> */}
       <ToastContainer theme="light" position="top-left"/>
     </div>
   )
